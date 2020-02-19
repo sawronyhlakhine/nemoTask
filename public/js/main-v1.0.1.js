@@ -2,6 +2,7 @@ $(document).ready(function(){
     // Materialise Init Functions
     $('.fixed-action-btn').floatingActionButton();
     $('input#input_text, textarea#textarea2').characterCounter();
+    $('.modal').modal();
 
 
     $('#gotit').on('click', removeCard);

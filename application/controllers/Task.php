@@ -19,7 +19,6 @@ class Task extends CI_Controller {
         $data['tasks'] = $this->task->list();
         $data['done_tasks'] = $this->task->donelist();
         $this->load->view('home',$data);
-        // die(var_dump($data));
         // echo date('F d, Y h:mA', strtotime('2009-10-14 19:00:00'));
     }
     
@@ -44,9 +43,21 @@ class Task extends CI_Controller {
             // GMT Time - gmdate("Y-m-d\TH:i:s\Z")
         ];
         $result = $this->task->insert($data);
-        die(var_dump($result));
-        $this->load->view();
-        
+        redirect('task');
+    }
+
+    public function edit($id = 0)
+    {
+        $rawData = [
+            'taskname_edit' => 'trim|required|min_length[5]|max_length[60]'
+        ];
+        if(!$this->validate($rawData)) {
+            $this->session->set_flashdata('toast','Failed to edit!');
+            redirect('/task');
+        }
+        // die(var_dump((int)$id, $this->input->post('taskname_edit')));
+        $result = $this->task->update((int)$id, ['name' => $this->input->post('taskname_edit')]);
+        redirect('/task');
     }
     
     public function markdone($id = 0)
@@ -54,9 +65,8 @@ class Task extends CI_Controller {
         $result = $this->task->update((int)$id, ['done' => 1]);
         if ($result) {
             $this->session->set_flashdata('toast','Success Mark Done!,'.base_url("/task/undo/".$id));
-            redirect('/task');
         }
-        // die(var_dump((int)$id));
+        redirect('/task');
     }
     
     public function undo($id=0)
@@ -64,8 +74,8 @@ class Task extends CI_Controller {
         $result = $this->task->update((int)$id, ['done' => 0]);
         if ($result) {
             $this->session->set_flashdata('toast','Success Undo!');
-            redirect('/task');
         }
+        redirect('/task');
     }
     
     public function delete($id = 0)
@@ -73,8 +83,8 @@ class Task extends CI_Controller {
         $result = $this->task->delete((int)$id);
         if ($result) {
             $this->session->set_flashdata('toast','Success Delete!');
-            redirect('/task');
         }
+        redirect('/task');
     }
     
     public function validate($rawArr)

@@ -2,8 +2,7 @@
     <!-- Page Content goes here -->
 
     <div class="row" id="cardInfo" style="margin-bottom: 0px;">
-        <div class="col s2"></div>
-        <div class="col s8 m8">
+        <div class="col s12">
             <div class="card amber accent-3">
                 <div class="card-content white-text">
                 <span class="card-title" style="color: #333;">Welcome To The <i class="tiny material-icons">beenhere</i> nemo Task</span>
@@ -14,7 +13,6 @@
                 </div>
             </div>
         </div>
-        <div class="col s2"></div>
     </div>
 
     <div class="row" style="padding: 10px 0px 0px; margin-bottom: 0px;">
@@ -86,9 +84,34 @@
                             <td><a class="btn-floating btn-small waves-effect waves-light" href="<?=base_url('/task/markdone/'.$task->id)?>"><i class="material-icons">done</i></a></td>
                             <td style="display:flex; align-items: center"><i class="tiny material-icons">label_outline</i>&nbsp;&nbsp;<strong><?= $task->name ?></strong></td>
                             <td>
-                                <a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+                                <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger" href="#modal<?=$task->id?>"><i class="material-icons">edit</i></a>
                                 <a class="btn-floating btn-small waves-effect waves-light red" href="<?=base_url('/task/delete/'.$task->id)?>"><i class="material-icons">delete</i></a>
                             </td>
+                            <!-- Modal Structure -->
+                            <div id="modal<?=$task->id?>" class="modal">
+                            <?= form_open('task/edit/'.$task->id) ?>
+                                <div class="modal-content">
+                                    <h4><i class="material-icons prefix">edit</i>&nbsp;Edit Task Name</h4>
+                                    <p>A bunch of text</p>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="input-field col s10">
+                                                <i class="material-icons prefix">event_note</i>
+                                                <?= form_input(['id'=>'edit_text','type'=>'text','name'=>'taskname_edit','data-length'=>'60', 'required'=>'required'], $task->name) ?>
+                                                <?= form_label('Task Name', 'edit_text') ?>
+                                                <!-- <input id="edit_text" type="text" name="taskname" data-length="60" required> -->
+                                                <!-- <label for="edit_text">Task Name</label> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="modal-close waves-effect waves-green btn blue-grey darken-3">Save
+                                        <i class="material-icons left">save</i>
+                                    </button>
+                                </div>
+                            <?= form_close ()?>
+                            </div>
                         </tr>
                     <?php } ?>
                 </tbody>
