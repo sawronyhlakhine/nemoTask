@@ -1,6 +1,6 @@
 <div class="fixed-action-btn">
-    <a class="btn-floating btn-large red darken-2 z-depth-3" href="./welcome">
-        <i class="large material-icons">add_circle_outline</i>
+    <a class="btn-floating btn-large amber accent-3 z-depth-3" href="./welcome">
+        <i class="large material-icons black-text">add</i>
     </a>
     <!-- <ul>
         <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>

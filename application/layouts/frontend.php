@@ -10,7 +10,7 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {meta}
-    <link rel="shortcut icon" href="<?= base_url("public/img/favicon.png") ?>" />
+    <link rel="shortcut icon" href="<?= base_url("public/images/favicon.png") ?>" />
 </head>
 
 <body>

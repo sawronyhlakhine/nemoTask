@@ -11,5 +11,5 @@ $config['styles'] = array(
 $config['scripts'] = array(
     "/js/core",
     "/vendors/materialize/js/materialize.min",
-    "/js/main"
+    "/js/main-v1.0.1"
 );

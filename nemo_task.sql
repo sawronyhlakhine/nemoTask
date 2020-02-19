@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 18, 2020 at 08:41 AM
+-- Generation Time: Feb 19, 2020 at 08:07 AM
 -- Server version: 5.7.28-0ubuntu0.18.04.4
 -- PHP Version: 7.2.24-0ubuntu0.18.04.2
 
@@ -30,11 +30,11 @@ CREATE TABLE `sub_task` (
   `id` int(11) NOT NULL,
   `task_id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `todo_date` date NOT NULL,
-  `done` tinyint(4) NOT NULL,
-  `created_datetime` datetime NOT NULL,
-  `updated_datetime` datetime NOT NULL
+  `description` varchar(255) DEFAULT NULL,
+  `todo_date` date DEFAULT NULL,
+  `done` tinyint(4) NOT NULL DEFAULT '0',
+  `created_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -46,11 +46,11 @@ CREATE TABLE `sub_task` (
 CREATE TABLE `task` (
   `id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `todo_date` date NOT NULL,
-  `done` tinyint(4) NOT NULL,
-  `created_datetime` datetime NOT NULL,
-  `updated_datetime` datetime NOT NULL
+  `description` varchar(255) DEFAULT NULL,
+  `todo_date` date DEFAULT NULL,
+  `done` tinyint(4) NOT NULL DEFAULT '0',
+  `created_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
