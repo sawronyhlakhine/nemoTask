@@ -49,13 +49,6 @@
         <div class="col s12">
             <blockquote style="margin: 0px;">Todo List</blockquote>
             <table class="responsive-table highlight" style="margin-bottom:10px;">
-                <thead>
-                    <tr>
-                        <td>Do</td>
-                        <td>Task Name</td>
-                        <td>Actions</td>
-                    </tr>
-                </thead>
                 <tbody>
                     <!-- <tr>
                         <td width="10%"><a class="btn-floating btn-small waves-effect waves-light"><i class="material-icons">done</i></a></td>
@@ -83,7 +76,7 @@
                         <tr>
                             <td><a class="btn-floating btn-small waves-effect waves-light" href="<?=base_url('/task/markdone/'.$task->id)?>"><i class="material-icons">done</i></a></td>
                             <td style="display:flex; align-items: center"><i class="tiny material-icons">label_outline</i>&nbsp;&nbsp;<strong><?= $task->name ?></strong></td>
-                            <td>
+                            <td width="20%">
                                 <a class="btn-floating btn-small waves-effect waves-light blue modal-trigger" href="#modal<?=$task->id?>"><i class="material-icons">edit</i></a>
                                 <a class="btn-floating btn-small waves-effect waves-light red" href="<?=base_url('/task/delete/'.$task->id)?>"><i class="material-icons">delete</i></a>
                             </td>
@@ -123,17 +116,11 @@
         <div class="col s12">
             <blockquote style="margin: 0px;">Completed Tasks</blockquote>
             <table class="responsive-table  highlight">
-                <thead>
-                    <tr>
-                        <td>Task Name</td>
-                        <td>Actions</td>
-                    </tr>
-                </thead>
                 <tbody>
                 <?php foreach ($done_tasks as $done_task) { ?>
                     <tr>
-                        <td width="70%" style="display:flex; align-items: center"><i class="tiny material-icons">done</i> &nbsp; <del><em><?=$done_task->name?></em></del></td>
-                        <td width="30%">
+                        <td width="80%" style="display:flex; align-items: center"><i class="tiny material-icons">done</i> &nbsp; <del><em><?=$done_task->name?></em></del></td>
+                        <td width="20%">
                             <a class="btn-floating btn-small waves-effect waves-light blue" href="<?=base_url('/task/undo/'.$done_task->id)?>"><i class="material-icons">undo</i></a>
                             <a class="btn-floating btn-small waves-effect waves-light red" href="<?=base_url('/task/delete/'.$done_task->id)?>"><i class="material-icons">delete</i></a>
                         </td>

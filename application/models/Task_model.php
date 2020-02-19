@@ -9,13 +9,13 @@ class Task_model extends CI_Model {
         $this->load->database();
     }
 
-    public function list()
+    public function list($uid)
     {
-        $query = "SELECT * FROM task WHERE done = 0;";
+        $query = "SELECT * FROM task WHERE done = 0 AND `user_id` = $uid;";
 		return $this->executeQuery($query);
     }
 
-    public function donelist()
+    public function donelist($uid)
     {
         $query = "SELECT * FROM task WHERE done = 1;";
 		return $this->executeQuery($query);

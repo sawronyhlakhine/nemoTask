@@ -3,10 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Task extends CI_Controller {
 
+    private $user_id;
+
 	public function __construct()
 	{
         parent::__construct();
-        date_default_timezone_set('Asia/Rangoon'); 
+        if(!$this->session->has_userdata('logged_in')) {
+			redirect("/auth");
+        }
+        $this->user_id = $this->session->userdata('logged_in')['id'];
+        date_default_timezone_set('Asia/Rangoon');
         $this->load->model('task_model', 'task');
         $this->layout = "frontend";
 		$this->parts['header'] = $this->load->view('includes/header', null, true);
@@ -16,9 +22,9 @@ class Task extends CI_Controller {
 	public function index()
 	{
 		$this->title = "Home - Nemo Task";
-        $data['tasks'] = $this->task->list();
-        $data['done_tasks'] = $this->task->donelist();
-        $this->load->view('home',$data);
+        $data['tasks'] = $this->task->list($this->user_id);
+        $data['done_tasks'] = $this->task->donelist($this->user_id);
+        $this->load->view('task_main',$data);
         // echo date('F d, Y h:mA', strtotime('2009-10-14 19:00:00'));
     }
     
@@ -34,6 +40,7 @@ class Task extends CI_Controller {
             redirect('/task');
         }
         $data = [
+            'user_id' => $this->user_id,
             'name' => $this->input->post('taskname'),
             'description' => NULL,
             'todo_date' => NULL,
