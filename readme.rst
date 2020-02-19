@@ -39,6 +39,8 @@ issues, as well as missing features.
 Installation
 ************
 
+`git clone https://github.com/urony/nemoTask.git nemotask`
+
 Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
 of the CodeIgniter User Guide.
 
