@@ -1,9 +1,7 @@
 # nemo Task
 ToDO List App
 
-###################
-What is CodeIgniter
-###################
+###What is CodeIgniter
 
 CodeIgniter is an Application Development Framework - a toolkit - for people
 who build web sites using PHP. Its goal is to enable you to develop projects
@@ -27,15 +25,14 @@ issues, as well as missing features.
 Installation
 ************
 
-`git clone https://github.com/urony/nemoTask.git nemotask`
+`git clone https://github.com/urony/nemoTask.git nemotask` and
+
 `cd nemotask`
 
 *******
 License
 *******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+[Please see the license agreement ](https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst)
 
 *********
 Resources
